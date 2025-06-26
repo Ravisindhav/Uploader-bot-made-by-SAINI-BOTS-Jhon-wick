@@ -1,24 +1,24 @@
-# Base image
+# Use a base image with Python
 FROM python:3.10.6-slim-buster
 
-# Install system packages
-RUN apt-get update && \
-    apt-get install -y ffmpeg libsm6 libxext6 curl && \
-    apt-get install -y build-essential python3-dev && \
-    apt-get clean
+# Install system-level dependencies
+RUN apt-get update && apt-get install -y \
+    curl ffmpeg libsm6 libxext6 \
+    build-essential python3-dev \
+    ca-certificates \
+    && apt-get clean
 
-# Install yt-dlp
-RUN curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp && \
-    chmod a+rx /usr/local/bin/yt-dlp
+# Make sure SSL certificates are up to date
+RUN update-ca-certificates
 
 # Set working directory
 WORKDIR /app
 
-# ✅ ✅ ✅ Ye line zaroor likho
+# Copy everything into container
 COPY . .
 
-# Install Python packages
+# Install Python packages (make sure certifi is in requirements.txt)
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Run the app
+# Run app using gunicorn + python if needed
 CMD gunicorn app:app & python3 main.py
