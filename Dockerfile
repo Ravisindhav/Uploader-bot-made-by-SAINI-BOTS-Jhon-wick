@@ -1,9 +1,10 @@
+
 # Set the base image 
 FROM python:3.10.6-slim-buster 
 # Install required system packages 
 RUN apt-get update -qq && \
- apt-get install -yqq ffmpeg libsm6 libxext6 curl && \
- apt-get install -yqq build-essential python3-dev && \
+ apt-get install -yqq ffmpeg libsm6 libxext6 curl -qq && \
+ apt-get install -yqq build-essential python3-dev -qq && \
  apt-get clean -qq 
 # Install yt-dlp 
 RUN curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp && \
