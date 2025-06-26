@@ -1,4 +1,3 @@
-```
 # Set the base image 
 FROM python:3.10.6-slim-buster 
 # Install required system packages 
@@ -23,4 +22,3 @@ COPY . .
 # Set the command to run the Python script 
 #CMD ["python", "main.py"] 
 CMD gunicorn app:app & python3 main.py
-```
