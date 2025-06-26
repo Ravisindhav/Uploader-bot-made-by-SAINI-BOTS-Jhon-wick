@@ -1,15 +1,17 @@
 # Set the base image 
 FROM python:3.10.6-slim-buster 
 # Install required system packages 
-RUN apt-get update && \
- apt-get install -y ffmpeg libsm6 libxext6 curl && \
- apt-get install -y build-essential python3-dev && \
- apt-get clean 
+RUN apt-get update -qq && \
+ apt-get install -yqq ffmpeg libsm6 libxext6 curl && \
+ apt-get install -yqq build-essential python3-dev && \
+ apt-get clean -qq 
 # Install yt-dlp 
 RUN curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp && \
  chmod a+rx /usr/local/bin/yt-dlp 
 # Set the working directory 
 WORKDIR /app 
+# requirements.txt file ko copy karein 
+COPY requirements.txt .
 # Virtual environment banayein 
 RUN python3 -m venv /app/venv 
 ENV PATH="/app/venv/bin:$PATH"
@@ -20,3 +22,8 @@ COPY . .
 # Set the command to run the Python script 
 #CMD ["python", "main.py"] 
 CMD gunicorn app:app & python3 main.py
+```
+Iske baad aap terminal mein yeh commands daalkar Docker image bana sakte hain:
+1. `docker build -t my-image .`
+2. `docker run -p 8000:8000 my-image`
+Yeh aapka container chalaa dega aur aap `http://localhost:8000
