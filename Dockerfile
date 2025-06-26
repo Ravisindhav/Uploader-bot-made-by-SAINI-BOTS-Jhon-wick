@@ -22,7 +22,3 @@ COPY . .
 # Set the command to run the Python script 
 #CMD ["python", "main.py"] 
 CMD gunicorn app:app & python3 main.py
-Iske baad aap terminal mein yeh commands daalkar Docker image bana sakte hain:
-1. `docker build -t my-image .`
-2. `docker run -p 8000:8000 my-image`
-Yeh aapka container chalaa dega aur aap `http://localhost:8000
