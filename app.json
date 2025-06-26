@@ -9,24 +9,24 @@
     "repository": "",
     "env": {
       "BOT_TOKEN": {
-        "description": "",
+        "description": "8161892652:AAF8lBVg_5psa7Bzasq6-PWN_XdiXzGQBYY",
         "value": ""
       },
       "API_ID": {
-        "description": "",
+        "description": "27660379",
         "value": ""
       },
       "API_HASH": {
-        "description": "",
+        "description": "19c71c27733f0954371085198855125a",
         "value": ""
       },
       "OWNER_ID": {
-        "description": "",
+        "description": "5459854363",
         "value": "",
         "required": true
       },
       "DATABASE_NAME": {
-        "description": "DRM SAINI BOTS",
+        "description": "DRM RAVI BOTS",
         "value": "sainiuploaderbotuser",
         "required": false
       },
