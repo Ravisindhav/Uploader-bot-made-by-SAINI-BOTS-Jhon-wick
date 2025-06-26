@@ -1,33 +1,35 @@
 import os
+import urllib.parse
 from dotenv import load_dotenv
-
-if os.path.exists("config.env"):
-    load_dotenv("config.env")
-else:
-    load_dotenv()
-
-
-def is_enabled(value, default):
-    if value.lower() in ["true", "yes", "1", "enable", "y"]:
-        return True
-    elif value.lower() in ["false", "no", "0", "disable", "n"]:
-        return False
-    else:
-        return default
-
-
+load_dotenv("config.env")
+username = "db_sindhavravi11@gmail.com"
+password = "db_$Ravi1996"
+cluster_name = "cluster0.bwlgbx3.mongodb.net"
+quoted_username = urllib.parse.quote_plus(username)
+quoted_password = urllib.parse.quote_plus(password)
+DATABASE_URL = f"mongodb+srv://{quoted_username}:{quoted_password}@{cluster_name}/?retryWrites=true&w=majority&appName=Cluster0"
+API_ID = int(os.environ.get("API_ID", ""))
+API_HASH = os.environ.get("API_HASH", "")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+DATABASE_NAME = os.environ.get("DATABASE_NAME", "tg_bot")
+OWNER_ID = int(os.environ.get("OWNER_ID", ""))
+LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", ""))
+WEB_SERVER = os.environ.get("WEB_SERVER", "False") == "True"
+WEBHOOK = True
+PORT = int(os.environ.get("PORT", 8000))
+THUMBNAILS = os.environ.get("THUMBNAILS", "https://i.imgur.com/6c9F05x.png")
 class Config(object):
-    API_ID = int(os.environ.get("API_ID", ""))
-    API_HASH = os.environ.get("API_HASH", "")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
-    DATABASE_NAME = os.environ.get("DATABASE_NAME", "tg_bot")
-    DATABASE_URL = os.environ.get("DATABASE_URL", "")
-    OWNER_ID = int(os.environ.get("OWNER_ID", ""))
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", ""))
-    WEB_SERVER = is_enabled(os.environ.get("WEB_SERVER", "False"), False)
-    WEBHOOK = True  # Don't change this
-    PORT = int(os.environ.get("PORT", 8000))
-    THUMBNAILS = list(map(str, os.environ.get("THUMBNAILS", "https://envs.sh/GV0.jpg").split()))
+    API_ID = API_ID
+    API_HASH = API_HASH
+    BOT_TOKEN = BOT_TOKEN
+    DATABASE_NAME = DATABASE_NAME
+    DATABASE_URL = DATABASE_URL
+    OWNER_ID = OWNER_ID
+    LOG_CHANNEL = LOG_CHANNEL
+    WEB_SERVER = WEB_SERVER
+    WEBHOOK = WEBHOOK
+    PORT = PORT
+    THUMBNAILS = THUMBNAILS
 
     # Constants
     CANCEL_DATA = {}
