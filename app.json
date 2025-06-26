@@ -5,8 +5,8 @@
     "keywords": [
       "telegram"
     ],
-    "website": "",
-    "repository": "",
+    "website": "https://github.com/Ravisindhav/Uploader-bot-made-by-SAINI-BOTS-Jhon-wick",
+    "repository": "https://github.com/Ravisindhav/Uploader-bot-made-by-SAINI-BOTS-Jhon-wick",
     "env": {
       "BOT_TOKEN": {
         "description": "8161892652:AAF8lBVg_5psa7Bzasq6-PWN_XdiXzGQBYY",
@@ -31,12 +31,12 @@
         "required": false
       },
       "DATABASE_URL": {
-        "description": "REPLACE YOUR DATABASE URL",
+        "description": "https://github.com/Ravisindhav/Uploader-bot-made-by-SAINI-BOTS-Jhon-wick",
         "value": "mongodb+srv://mewadonlinestudy:yYjxKiZGQag8DnWH@cpvod.ywpecvo.mongodb.net/?retryWrites=true&w=majority&appName=cpvodak",
         "required": true
       },
       "LOG_CHANNEL": {
-        "description": "LOG CHANNEL ID",
+        "description": "-1002679522817",
         "value": ""
       }
     },
